@@ -9,17 +9,17 @@ import {GovernorVotesQuorumFraction} from "@openzeppelin/contracts/governance/ex
 import {IVotes} from "@openzeppelin/contracts/governance/utils/IVotes.sol";
 
 /**
- * @title ELPGovernor
- * @notice On-chain signal voting system for the ELP Terminal ecosystem.
+ * @title EELPGovernor
+ * @notice On-chain signal voting system for the EELP Terminal ecosystem.
  * @dev Powered by OpenZeppelin Governor and ERC20Votes for transparent community signaling.
  * 
  * Parameters:
  * - Voting Delay: 1 day (7200 blocks / ~7200 slots on Arbitrum)
  * - Voting Period: 5 days (~36000 blocks / slots)
- * - Proposal Threshold: 100,000 ELP (Elite tier)
+ * - Proposal Threshold: 100,000 EELP (Elite tier)
  * - Quorum: 4% of total voting power
  */
-contract ELPGovernor is
+contract EELPGovernor is
     Governor,
     GovernorSettings,
     GovernorCountingSimple,
@@ -27,7 +27,7 @@ contract ELPGovernor is
     GovernorVotesQuorumFraction
 {
     /**
-     * @param _token The ELPToken contract address implementing IVotes.
+     * @param _token The EELPToken contract address implementing IVotes.
      * @param _initialVotingDelay Initial voting delay in timepoints/blocks (e.g. 7200).
      * @param _initialVotingPeriod Initial voting period in timepoints/blocks (e.g. 36000).
      * @param _initialProposalThreshold Initial minimum votes required to create a proposal (e.g. 100,000 * 10^18).
@@ -40,7 +40,7 @@ contract ELPGovernor is
         uint256 _initialProposalThreshold,
         uint256 _quorumPercentage
     )
-        Governor("ELP Governor")
+        Governor("EELP Governor")
         GovernorSettings(
             _initialVotingDelay,
             _initialVotingPeriod,

@@ -32,7 +32,7 @@ export const NetworkWarning: React.FC<NetworkWarningProps> = ({
           <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
           <span>
             You are connected to <strong>{chain?.name || "an unsupported network"}</strong>.
-            Switch to <strong>{targetChain.name}</strong> to interact with $ELP utility contracts.
+            Switch to <strong>{targetChain.name}</strong> to interact with $EELP utility contracts.
           </span>
         </div>
         <button

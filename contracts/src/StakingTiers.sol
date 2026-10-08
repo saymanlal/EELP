@@ -7,13 +7,13 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 
 /**
  * @title StakingTiers
- * @notice Allows ELP token holders to stake ELP to qualify for ecosystem access tiers.
+ * @notice Allows EELP token holders to stake EELP to qualify for ecosystem access tiers.
  * @dev Staking does NOT mint tokens. Unstaking enforces a transparent on-chain cooldown.
  *
  * Tier Structure:
- * - FREE: 0 ELP
- * - PRO: 10,000 ELP
- * - ELITE: 100,000 ELP
+ * - FREE: 0 EELP
+ * - PRO: 10,000 EELP
+ * - ELITE: 100,000 EELP
  */
 contract StakingTiers is ReentrancyGuard {
     using SafeERC20 for IERC20;
@@ -60,7 +60,7 @@ contract StakingTiers is ReentrancyGuard {
     );
 
     /**
-     * @param _elpToken Address of the ELP ERC20 token.
+     * @param _elpToken Address of the EELP ERC20 token.
      * @param _cooldownDuration Cooldown period in seconds before unstaked tokens can be withdrawn (e.g. 7 days).
      */
     constructor(address _elpToken, uint256 _cooldownDuration) {
@@ -70,8 +70,8 @@ contract StakingTiers is ReentrancyGuard {
     }
 
     /**
-     * @notice Stakes a specified amount of ELP tokens.
-     * @param amount The amount of ELP tokens to stake (in wei).
+     * @notice Stakes a specified amount of EELP tokens.
+     * @param amount The amount of EELP tokens to stake (in wei).
      */
     function stake(uint256 amount) external nonReentrant {
         require(amount > 0, "Cannot stake 0");
@@ -86,7 +86,7 @@ contract StakingTiers is ReentrancyGuard {
 
     /**
      * @notice Initiates an unstake request with a mandatory cooldown period.
-     * @param amount The amount of ELP tokens to unstake.
+     * @param amount The amount of EELP tokens to unstake.
      */
     function requestUnstake(uint256 amount) external nonReentrant {
         require(amount > 0, "Cannot unstake 0");

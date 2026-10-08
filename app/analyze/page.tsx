@@ -18,10 +18,10 @@ export default function AnalyzeIndexPage() {
 
   const curatedTokens = [
     {
-      name: "ELP Terminal",
-      symbol: "ELP",
+      name: "EELP Terminal",
+      symbol: "EELP",
       chain: "arbitrum-sepolia",
-      address: process.env.NEXT_PUBLIC_ELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
+      address: process.env.NEXT_PUBLIC_EELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
       type: "Utility & Access Token",
     },
     {

@@ -12,10 +12,10 @@ export const Footer: React.FC = () => {
           <div className="space-y-3 md:col-span-1">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-slate-900 dark:bg-emerald-500 flex items-center justify-center text-white dark:text-slate-950 font-bold text-sm">
-                ELP
+                EELP
               </div>
               <span className="font-bold text-base text-slate-900 dark:text-white">
-                ELP
+                EELP
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -61,10 +61,10 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: $ELP Utility */}
+          {/* Col 3: $EELP Utility */}
           <div className="space-y-2">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-white">
-              $ELP Ecosystem
+              $EELP Ecosystem
             </h4>
             <ul className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
               <li>
@@ -143,7 +143,7 @@ export const Footer: React.FC = () => {
         {/* Bottom copyright */}
         <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <div>
-            © {new Date().getFullYear()} ELP Platform. Powered by on-chain telemetry.
+            © {new Date().getFullYear()} EELP Platform. Powered by on-chain telemetry.
           </div>
           <div className="flex items-center gap-4">
             <Link href="/docs" className="hover:underline">

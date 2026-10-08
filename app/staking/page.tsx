@@ -14,10 +14,10 @@ export default function StakingPage() {
           <span>Access Staking</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-          $ELP Tier Staking & Cooldown Engine
+          $EELP Tier Staking & Cooldown Engine
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Stake $ELP tokens to qualify for Pro and Elite tier forensic capabilities. Staking does not mint inflationary tokens. Unstaking enforces a transparent 7-day cooldown.
+          Stake $EELP tokens to qualify for Pro and Elite tier forensic capabilities. Staking does not mint inflationary tokens. Unstaking enforces a transparent 7-day cooldown.
         </p>
       </div>
 

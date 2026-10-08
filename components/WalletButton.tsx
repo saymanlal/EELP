@@ -24,7 +24,7 @@ export const WalletButton: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Read ELP Balance if token contract is configured
+  // Read EELP Balance if token contract is configured
   const { data: elpBalanceRaw } = useReadContract({
     address: CONTRACT_ADDRESSES.elpToken as `0x${string}`,
     abi: CONTRACT_ABIS.elpToken,
@@ -101,7 +101,7 @@ export const WalletButton: React.FC = () => {
       >
         {elpBalance !== null && (
           <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800">
-            {elpBalance} $ELP
+            {elpBalance} $EELP
           </span>
         )}
         <div className="flex items-center gap-1.5 font-medium text-slate-800 dark:text-slate-200">

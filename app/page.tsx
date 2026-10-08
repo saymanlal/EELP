@@ -32,10 +32,10 @@ export default function HomePage() {
 
   const sampleTokens = [
     {
-      symbol: "ELP",
-      name: "ELP Terminal",
+      symbol: "EELP",
+      name: "EELP Terminal",
       chain: "arbitrum-sepolia",
-      address: process.env.NEXT_PUBLIC_ELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
+      address: process.env.NEXT_PUBLIC_EELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
       desc: "Native Utility Token",
       tag: "Testnet Ready",
     },
@@ -71,7 +71,7 @@ export default function HomePage() {
       <section className="text-center max-w-3xl mx-auto space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>ELP On-Chain Forensic Platform</span>
+          <span>EELP On-Chain Forensic Platform</span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
@@ -143,13 +143,13 @@ export default function HomePage() {
       <section className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-8 sm:p-12 shadow-sm text-center relative overflow-hidden">
         <div className="max-w-2xl mx-auto space-y-3 mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-            The ELP Core Differentiator
+            The EELP Core Differentiator
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
             Don&apos;t just watch the chart. Investigate what is moving it.
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-            Most platforms show prices and volume. ELP connects the dots between raw block traces, wallet relationships, and pool dynamics.
+            Most platforms show prices and volume. EELP connects the dots between raw block traces, wallet relationships, and pool dynamics.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ export default function HomePage() {
           <div className="py-2 text-slate-400">↓</div>
 
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-bold max-w-md mx-auto">
-            ELP FORENSIC INTELLIGENCE ENGINE
+            EELP FORENSIC INTELLIGENCE ENGINE
           </div>
 
           <div className="py-2 text-slate-400">↓</div>

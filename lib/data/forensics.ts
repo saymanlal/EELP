@@ -96,7 +96,7 @@ export async function analyzeToken(
   const isKnownPopular =
     normalizedAddress.includes("c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2") || // WETH
     normalizedAddress.includes("6982508145454ce325ddbe47a25d4ec3d2311933") || // PEPE
-    token.symbol === "ELP";
+    token.symbol === "EELP";
 
   // Top Holder Distribution
   const top10Concentration = Math.min(88, Math.max(12, 28 + (seed % 45)));
@@ -602,7 +602,7 @@ export async function analyzeToken(
     tags: ["Contract Deployer", "Verified Signer"],
   };
 
-  // ELP Intelligence Score (0 - 100)
+  // EELP Intelligence Score (0 - 100)
   const dataQuality = onChainToken && dexData ? 95 : 75;
   const holderDist = concentrationScore;
   const liqQuality = Math.min(95, Math.max(30, 45 + Math.round(market.liquidityUsd / 10000)));

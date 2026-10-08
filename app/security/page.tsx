@@ -7,8 +7,8 @@ import { Disclaimer } from "@/components/Disclaimer";
 export default function SecurityPage() {
   const securityGuarantees = [
     {
-      title: "100% Fixed Supply (1 Billion $ELP)",
-      description: "The entire supply of 1,000,000,000 $ELP is minted exactly once during contract deployment. No post-deployment mint function exists in the contract bytecode.",
+      title: "100% Fixed Supply (1 Billion $EELP)",
+      description: "The entire supply of 1,000,000,000 $EELP is minted exactly once during contract deployment. No post-deployment mint function exists in the contract bytecode.",
     },
     {
       title: "No Privilege Controls / No Hidden Admin",
@@ -73,7 +73,7 @@ export default function SecurityPage() {
           <span>User Safety Guidelines</span>
         </h3>
         <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
-          <li>• Never share your seed phrase or private keys with anyone. ELP will NEVER ask for private keys.</li>
+          <li>• Never share your seed phrase or private keys with anyone. EELP will NEVER ask for private keys.</li>
           <li>• Always verify contract addresses against the official On-Chain Registry before approving transactions.</li>
           <li>• Ensure your connected network is Arbitrum Sepolia (421614) for testnet testing or Arbitrum One (42161) for production.</li>
           <li>• Always review transaction data and token allowances in your wallet before signing.</li>

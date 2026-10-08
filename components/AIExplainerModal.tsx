@@ -66,7 +66,7 @@ export const AIExplainerModal: React.FC<AIExplainerModalProps> = ({
           <div className="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs text-slate-800 dark:text-slate-200 leading-relaxed">
             <div className="font-semibold text-emerald-800 dark:text-emerald-400 mb-1.5 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>ELP Forensic Assessment</span>
+              <span>EELP Forensic Assessment</span>
             </div>
             <p>{interpretation}</p>
           </div>

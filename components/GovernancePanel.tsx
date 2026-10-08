@@ -22,10 +22,10 @@ interface SignalProposal {
 
 const INITIAL_PROPOSALS: SignalProposal[] = [
   {
-    id: "ELP-SIG-01",
+    id: "EELP-SIG-01",
     title: "Prioritize Cross-Chain Solana & Sui Forensic Adapters",
     category: "Ecosystem Integration",
-    description: "Expand ELP X-Ray engine beyond EVM chains into high-throughput non-EVM ecosystems with dedicated cluster detection.",
+    description: "Expand EELP X-Ray engine beyond EVM chains into high-throughput non-EVM ecosystems with dedicated cluster detection.",
     forVotes: 14200000,
     againstVotes: 1800000,
     abstainVotes: 320000,
@@ -33,7 +33,7 @@ const INITIAL_PROPOSALS: SignalProposal[] = [
     endsIn: "3 days",
   },
   {
-    id: "ELP-SIG-02",
+    id: "EELP-SIG-02",
     title: "Integrate Real-Time Liquidity Shock Webhook Alerts",
     category: "Feature Priority",
     description: "Enable Elite Tier users to receive automated push notifications upon severe LP withdrawals (>15% pool depth).",
@@ -121,7 +121,7 @@ export const GovernancePanel: React.FC = () => {
           </div>
           <div className="flex items-center gap-2">
             <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-              Your Voting Power: {formatNumber(votingPower)} $ELP
+              Your Voting Power: {formatNumber(votingPower)} $EELP
             </span>
           </div>
         </div>

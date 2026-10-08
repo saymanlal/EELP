@@ -129,7 +129,7 @@ export function getGlobalMarketTelemetry(): GlobalMarketTelemetry {
         tokenCount: 14,
         dexVolumeUsd: 45000000,
         topTokens: [
-          { symbol: "ELP", address: "0x0000000000000000000000000000000000000000", chain: "arbitrum-sepolia", change24h: 14.8 },
+          { symbol: "EELP", address: "0x0000000000000000000000000000000000000000", chain: "arbitrum-sepolia", change24h: 14.8 },
         ],
         signalStrength: "Strong",
       },

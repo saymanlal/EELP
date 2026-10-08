@@ -17,7 +17,7 @@ export const MethodologyModal: React.FC<MethodologyModalProps> = ({ isOpen, onCl
           <div className="flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-emerald-500" />
             <h3 className="font-bold text-lg text-slate-900 dark:text-white">
-              ELP Analytical Methodology
+              EELP Analytical Methodology
             </h3>
           </div>
           <button
@@ -65,7 +65,7 @@ export const MethodologyModal: React.FC<MethodologyModalProps> = ({ isOpen, onCl
 
           <div>
             <h4 className="font-bold text-base text-slate-900 dark:text-white mb-2">
-              4. ELP Intelligence Score (0 - 100)
+              4. EELP Intelligence Score (0 - 100)
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               A composite metric aggregating data completeness, contract immutability, liquidity depth, flow consistency, and anomaly control. It is an analytical health score, NOT a financial return prediction.

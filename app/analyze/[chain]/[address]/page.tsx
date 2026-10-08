@@ -235,10 +235,10 @@ export default function TokenXRayPage() {
 
           {/* Action Buttons & Composite Score */}
           <div className="flex flex-wrap items-center gap-3">
-            {/* ELP Intelligence Score Badge */}
+            {/* EELP Intelligence Score Badge */}
             <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center px-5">
               <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                ELP Intelligence Score
+                EELP Intelligence Score
               </div>
               <div className="text-2xl font-black font-mono text-emerald-700 dark:text-emerald-300">
                 {data.elpIntelligenceScore.score}

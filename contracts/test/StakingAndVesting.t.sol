@@ -2,16 +2,16 @@
 pragma solidity 0.8.24;
 
 import {Test} from "forge-std/Test.sol";
-import {ELPToken} from "../src/ELPToken.sol";
+import {EELPToken} from "../src/EELPToken.sol";
 import {StakingTiers} from "../src/StakingTiers.sol";
 import {VestingVault} from "../src/VestingVault.sol";
-import {ELPGovernor} from "../src/ELPGovernor.sol";
+import {EELPGovernor} from "../src/EELPGovernor.sol";
 
 contract StakingAndVestingTest is Test {
-    ELPToken public token;
+    EELPToken public token;
     StakingTiers public staking;
     VestingVault public vault;
-    ELPGovernor public governor;
+    EELPGovernor public governor;
 
     address public deployer;
     address public alice;
@@ -28,7 +28,7 @@ contract StakingAndVestingTest is Test {
         teamMember = makeAddr("teamMember");
 
         // Deploy Token
-        token = new ELPToken(deployer);
+        token = new EELPToken(deployer);
 
         // Deploy Staking
         staking = new StakingTiers(address(token), COOLDOWN);
@@ -44,11 +44,11 @@ contract StakingAndVestingTest is Test {
             TEAM_ALLOCATION
         );
 
-        // Fund VestingVault with 100M ELP
+        // Fund VestingVault with 100M EELP
         token.transfer(address(vault), TEAM_ALLOCATION);
 
         // Deploy Governor
-        governor = new ELPGovernor(
+        governor = new EELPGovernor(
             token,
             7200, // voting delay (~1 day)
             36000, // voting period (~5 days)
@@ -199,7 +199,7 @@ contract StakingAndVestingTest is Test {
     // ==================== GOVERNOR TESTS ====================
 
     function test_GovernorParameters() public view {
-        assertEq(governor.name(), "ELP Governor");
+        assertEq(governor.name(), "EELP Governor");
         assertEq(governor.votingDelay(), 7200);
         assertEq(governor.votingPeriod(), 36000);
         assertEq(governor.proposalThreshold(), 100_000 * 1e18);

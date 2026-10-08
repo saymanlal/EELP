@@ -54,11 +54,11 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-2.5 group">
               <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-emerald-500 flex items-center justify-center text-white dark:text-slate-950 font-black text-lg tracking-wider shadow-sm transition group-hover:scale-105">
-                ELP
+                EELP
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-base tracking-tight text-slate-900 dark:text-white leading-none">
-                  ELP
+                  EELP
                 </span>
                 <span className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 dark:text-slate-500 mt-0.5">
                   Market Forensics

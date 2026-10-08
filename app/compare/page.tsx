@@ -9,7 +9,7 @@ import { SUPPORTED_CHAINS } from "@/lib/chains";
 
 export default function ComparePage() {
   const [chainA, setChainA] = useState("arbitrum-sepolia");
-  const [addressA, setAddressA] = useState(process.env.NEXT_PUBLIC_ELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000");
+  const [addressA, setAddressA] = useState(process.env.NEXT_PUBLIC_EELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000");
 
   const [chainB, setChainB] = useState("ethereum");
   const [addressB, setAddressB] = useState("0x6982508145454ce325ddbe47a25d4ec3d2311933"); // PEPE
@@ -138,7 +138,7 @@ export default function ComparePage() {
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
               <tr>
                 <td className="py-3.5 px-4 font-sans font-semibold text-slate-600 dark:text-slate-400">
-                  ELP Intelligence Score
+                  EELP Intelligence Score
                 </td>
                 <td className="py-3.5 px-4 font-bold text-emerald-600 text-sm">
                   {dataA.elpIntelligenceScore.score} / 100

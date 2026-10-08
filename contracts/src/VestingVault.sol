@@ -8,7 +8,7 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 /**
  * @title VestingVault
  * @notice Trustless, immutable linear token vesting vault with a cliff period.
- * @dev Designed for the ELP Team allocation (100,000,000 ELP) with 3-month cliff and 12-month linear vesting.
+ * @dev Designed for the EELP Team allocation (100,000,000 EELP) with 3-month cliff and 12-month linear vesting.
  * 
  * Guarantees:
  * - Immutable beneficiary and schedule.
@@ -31,12 +31,12 @@ contract VestingVault is ReentrancyGuard {
     event TokensReleased(address indexed beneficiary, uint256 amount, uint256 totalReleased);
 
     /**
-     * @param _token Address of the ERC20 token being vested (ELP).
+     * @param _token Address of the ERC20 token being vested (EELP).
      * @param _beneficiary Address entitled to receive vested tokens.
      * @param _startTimestamp Epoch timestamp when the vesting schedule starts.
      * @param _cliffDuration Duration in seconds of the initial cliff (e.g. 90 days = 3 months).
      * @param _vestingDuration Duration in seconds of linear vesting after cliff (e.g. 365 days = 12 months).
-     * @param _totalAllocation Total amount of tokens assigned to this vault (e.g. 100M ELP).
+     * @param _totalAllocation Total amount of tokens assigned to this vault (e.g. 100M EELP).
      */
     constructor(
         address _token,

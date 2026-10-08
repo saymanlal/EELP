@@ -29,7 +29,7 @@ export default function DashboardPage() {
   const { address, isConnected, chain } = useAccount();
   const [addTokenSuccess, setAddTokenSuccess] = useState(false);
 
-  // Read User ELP Balance
+  // Read User EELP Balance
   const { data: elpBalanceRaw } = useReadContract({
     address: CONTRACT_ADDRESSES.elpToken as `0x${string}`,
     abi: CONTRACT_ABIS.elpToken,
@@ -87,7 +87,7 @@ export default function DashboardPage() {
           type: "ERC20",
           options: {
             address: CONTRACT_ADDRESSES.elpToken,
-            symbol: "ELP",
+            symbol: "EELP",
             decimals: 18,
           },
         },
@@ -109,10 +109,10 @@ export default function DashboardPage() {
             <span>Holder & Utility Portal</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-            ELP Ecosystem Dashboard
+            EELP Ecosystem Dashboard
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Manage your $ELP balance, inspect tier benefits, claim testnet tokens, and participate in signal governance.
+            Manage your $EELP balance, inspect tier benefits, claim testnet tokens, and participate in signal governance.
           </p>
         </div>
 
@@ -124,12 +124,12 @@ export default function DashboardPage() {
       {/* Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          label="Wallet $ELP Balance"
+          label="Wallet $EELP Balance"
           value={formatNumber(elpBalance)}
           subtext="Available in connected wallet"
         />
         <StatCard
-          label="Active Staked $ELP"
+          label="Active Staked $EELP"
           value={formatNumber(stakedBalance)}
           subtext={`Current Tier: ${currentTier}`}
         />
@@ -155,7 +155,7 @@ export default function DashboardPage() {
             </h3>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Testnet $ELP is intended for testing, development, and experimentation and has no intended monetary value.
+            Testnet $EELP is intended for testing, development, and experimentation and has no intended monetary value.
           </p>
           {CONTRACT_ADDRESSES.elpToken && (
             <div className="text-xs font-mono text-slate-500">
@@ -171,7 +171,7 @@ export default function DashboardPage() {
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl bg-slate-900 dark:bg-emerald-500 hover:bg-slate-800 dark:hover:bg-emerald-600 text-white dark:text-slate-950 font-bold text-xs shadow-sm transition inline-flex items-center gap-1.5"
           >
-            <span>Get Sepolia ETH / ELP</span>
+            <span>Get Sepolia ETH / EELP</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
 
@@ -181,7 +181,7 @@ export default function DashboardPage() {
             className="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs transition inline-flex items-center gap-1.5 disabled:opacity-50"
           >
             <Plus className="w-3.5 h-3.5" />
-            <span>{addTokenSuccess ? "Added to Wallet!" : "Add $ELP to Wallet"}</span>
+            <span>{addTokenSuccess ? "Added to Wallet!" : "Add $EELP to Wallet"}</span>
           </button>
         </div>
       </div>
@@ -193,7 +193,7 @@ export default function DashboardPage() {
             Ecosystem Access Tiers
           </h3>
           <p className="text-xs text-slate-500">
-            Stake $ELP to unlock progressively deeper forensic capabilities.
+            Stake $EELP to unlock progressively deeper forensic capabilities.
           </p>
         </div>
 

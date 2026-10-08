@@ -1,10 +1,10 @@
-# ELP Terminal
+# EELP Terminal
 
 ### Crypto Market Intelligence & On-Chain Forensics Platform
 
-ELP is a modern, Web3-native crypto market intelligence and on-chain forensic analysis platform built to turn raw blockchain activity into understandable market intelligence.
+EELP is a modern, Web3-native crypto market intelligence and on-chain forensic analysis platform built to turn raw blockchain activity into understandable market intelligence.
 
-Native utility token: **$ELP** (Launched separately via Siren Launchpad).
+Native utility token: **$EELP** (Launched separately via Siren Launchpad).
 
 ---
 
@@ -66,7 +66,7 @@ forge test -vvv
    NEXT_PUBLIC_CHAIN_ID=421614
    NEXT_PUBLIC_RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
    NEXT_PUBLIC_EXPLORER_URL=https://sepolia.arbiscan.io
-   NEXT_PUBLIC_ELP_TOKEN_ADDRESS=
+   NEXT_PUBLIC_EELP_TOKEN_ADDRESS=
    NEXT_PUBLIC_STAKING_ADDRESS=
    NEXT_PUBLIC_VESTING_ADDRESS=
    NEXT_PUBLIC_GOVERNOR_ADDRESS=

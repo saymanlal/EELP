@@ -24,7 +24,7 @@ export const RiskRadarGrid: React.FC<RiskRadarGridProps> = ({ categories }) => {
         <div>
           <h3 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-500" />
-            <span>ELP Risk Radar Matrix</span>
+            <span>EELP Risk Radar Matrix</span>
           </h3>
           <p className="text-xs text-slate-500">
             Deterministic risk signal breakdown across 7 on-chain vulnerability vectors.

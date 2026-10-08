@@ -1,7 +1,7 @@
-import ELPTokenAbi from "@/abi/ELPToken.json";
+import EELPTokenAbi from "@/abi/EELPToken.json";
 import StakingTiersAbi from "@/abi/StakingTiers.json";
 import VestingVaultAbi from "@/abi/VestingVault.json";
-import ELPGovernorAbi from "@/abi/ELPGovernor.json";
+import EELPGovernorAbi from "@/abi/EELPGovernor.json";
 import ERC20Abi from "@/abi/ERC20.json";
 
 export interface ContractAddresses {
@@ -15,7 +15,7 @@ export interface ContractAddresses {
 }
 
 export const CONTRACT_ADDRESSES: ContractAddresses = {
-  elpToken: (process.env.NEXT_PUBLIC_ELP_TOKEN_ADDRESS as `0x${string}`) || "",
+  elpToken: (process.env.NEXT_PUBLIC_EELP_TOKEN_ADDRESS as `0x${string}`) || "",
   staking: (process.env.NEXT_PUBLIC_STAKING_ADDRESS as `0x${string}`) || "",
   vesting: (process.env.NEXT_PUBLIC_VESTING_ADDRESS as `0x${string}`) || "",
   governor: (process.env.NEXT_PUBLIC_GOVERNOR_ADDRESS as `0x${string}`) || "",
@@ -25,10 +25,10 @@ export const CONTRACT_ADDRESSES: ContractAddresses = {
 };
 
 export const CONTRACT_ABIS = {
-  elpToken: ELPTokenAbi,
+  elpToken: EELPTokenAbi,
   staking: StakingTiersAbi,
   vesting: VestingVaultAbi,
-  governor: ELPGovernorAbi,
+  governor: EELPGovernorAbi,
   erc20: ERC20Abi,
 };
 
@@ -36,7 +36,7 @@ export const STAKING_TIERS_CONFIG = {
   FREE: {
     name: "FREE",
     requiredStake: 0n,
-    label: "0 $ELP",
+    label: "0 $EELP",
     description: "Basic on-chain token X-Ray, public liquidity and market structure overview.",
     features: [
       "Token Contract X-Ray",
@@ -49,7 +49,7 @@ export const STAKING_TIERS_CONFIG = {
   PRO: {
     name: "PRO",
     requiredStake: 10_000n * 10n ** 18n,
-    label: "10,000 $ELP",
+    label: "10,000 $EELP",
     description: "Advanced wallet intelligence, flow divergence signals and cluster mapping.",
     features: [
       "All Free Tier capabilities",
@@ -64,7 +64,7 @@ export const STAKING_TIERS_CONFIG = {
   ELITE: {
     name: "ELITE",
     requiredStake: 100_000n * 10n ** 18n,
-    label: "100,000 $ELP",
+    label: "100,000 $EELP",
     description: "Full institutional forensic suite, deep wallet clustering and signal governance.",
     features: [
       "All Pro Tier capabilities",

@@ -65,10 +65,10 @@ export const TokenomicsChart: React.FC = () => {
         <div>
           <h3 className="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
             <PieChart className="w-5 h-5 text-emerald-500" />
-            <span>$ELP Token Distribution & Allocation</span>
+            <span>$EELP Token Distribution & Allocation</span>
           </h3>
           <p className="text-xs text-slate-500">
-            Total Fixed Supply: 1,000,000,000 $ELP (No minting, no taxes, no hidden admin).
+            Total Fixed Supply: 1,000,000,000 $EELP (No minting, no taxes, no hidden admin).
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -119,7 +119,7 @@ export const TokenomicsChart: React.FC = () => {
               {activeSegment.percentage}%
             </span>
             <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400 font-mono">
-              {formatNumber(activeSegment.tokens)} $ELP
+              {formatNumber(activeSegment.tokens)} $EELP
             </span>
           </div>
         </div>
@@ -150,7 +150,7 @@ export const TokenomicsChart: React.FC = () => {
                         {seg.name}
                       </div>
                       <div className="text-[11px] text-slate-500 font-mono">
-                        {formatNumber(seg.tokens)} $ELP
+                        {formatNumber(seg.tokens)} $EELP
                       </div>
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export const TokenomicsChart: React.FC = () => {
             <div className="font-bold text-slate-900 dark:text-white flex items-center justify-between">
               <span>{activeSegment.name} Details</span>
               <span className="text-emerald-600 font-mono font-semibold">
-                {activeSegment.percentage}% ({formatNumber(activeSegment.tokens)} $ELP)
+                {activeSegment.percentage}% ({formatNumber(activeSegment.tokens)} $EELP)
               </span>
             </div>
             <p className="text-slate-600 dark:text-slate-400">

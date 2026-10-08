@@ -10,10 +10,10 @@ interface TokenSearchModalProps {
 
 const POPULAR_TOKENS = [
   {
-    symbol: "ELP",
-    name: "ELP Terminal",
+    symbol: "EELP",
+    name: "EELP Terminal",
     chain: "arbitrum-sepolia",
-    address: process.env.NEXT_PUBLIC_ELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
+    address: process.env.NEXT_PUBLIC_EELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
     isTestnet: true,
   },
   {

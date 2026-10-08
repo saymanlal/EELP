@@ -15,7 +15,7 @@ export default function DocsPage() {
           <span>Documentation Hub</span>
         </div>
         <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">
-          ELP Terminal Litepaper & Documentation
+          EELP Terminal Litepaper & Documentation
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
           Technical specifications, litepaper, deployment procedures, and API adapter architectures.
@@ -28,10 +28,10 @@ export default function DocsPage() {
             <BookOpen className="w-5 h-5" />
           </div>
           <h3 className="font-bold text-base text-slate-900 dark:text-white">
-            ELP Litepaper
+            EELP Litepaper
           </h3>
           <p className="text-xs text-slate-500 leading-relaxed">
-            Read the one-page overview of the ELP ecosystem, tokenomics, access tiers, and on-chain forensic mission.
+            Read the one-page overview of the EELP ecosystem, tokenomics, access tiers, and on-chain forensic mission.
           </p>
           <Link
             href="/methodology"
@@ -68,10 +68,10 @@ export default function DocsPage() {
           Executive Summary
         </h2>
         <p>
-          Most crypto market tooling focuses exclusively on superficial price charts, volume indicators, and marketing numbers. ELP Terminal provides a forensic intelligence layer that translates raw blockchain bytecode, DEX liquidity pool states, and wallet relationship topologies into understandable market intelligence.
+          Most crypto market tooling focuses exclusively on superficial price charts, volume indicators, and marketing numbers. EELP Terminal provides a forensic intelligence layer that translates raw blockchain bytecode, DEX liquidity pool states, and wallet relationship topologies into understandable market intelligence.
         </p>
         <p>
-          The native utility token $ELP powers access gating and decentralized community signal voting, operating on a fixed supply of 1,000,000,000 tokens with zero inflation, zero taxes, and trustless public vesting schedules.
+          The native utility token $EELP powers access gating and decentralized community signal voting, operating on a fixed supply of 1,000,000,000 tokens with zero inflation, zero taxes, and trustless public vesting schedules.
         </p>
       </div>
 

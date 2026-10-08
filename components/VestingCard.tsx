@@ -108,7 +108,7 @@ export const VestingCard: React.FC = () => {
             </p>
           </div>
           <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
-            100M $ELP Vault
+            100M $EELP Vault
           </span>
         </div>
 
@@ -131,25 +131,25 @@ export const VestingCard: React.FC = () => {
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
             <div className="text-[11px] text-slate-400">Total Allocation</div>
             <div className="text-sm font-bold font-mono text-slate-900 dark:text-white">
-              {formatNumber(totalAllocation)} $ELP
+              {formatNumber(totalAllocation)} $EELP
             </div>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
             <div className="text-[11px] text-slate-400">Vested So Far</div>
             <div className="text-sm font-bold font-mono text-emerald-600 dark:text-emerald-400">
-              {formatNumber(vestedAmount)} $ELP
+              {formatNumber(vestedAmount)} $EELP
             </div>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
             <div className="text-[11px] text-slate-400">Released / Claimed</div>
             <div className="text-sm font-bold font-mono text-slate-900 dark:text-white">
-              {formatNumber(released)} $ELP
+              {formatNumber(released)} $EELP
             </div>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
             <div className="text-[11px] text-slate-400">Releasable Now</div>
             <div className="text-sm font-bold font-mono text-amber-600 dark:text-amber-400">
-              {formatNumber(releasable)} $ELP
+              {formatNumber(releasable)} $EELP
             </div>
           </div>
         </div>

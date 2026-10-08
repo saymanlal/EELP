@@ -15,10 +15,10 @@ export default function TokenomicsPage() {
           <span>Transparent Tokenomics</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-          $ELP Fixed Supply & Vesting
+          $EELP Fixed Supply & Vesting
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Total fixed supply of 1,000,000,000 $ELP. No minting, no transaction taxes, no hidden admin keys.
+          Total fixed supply of 1,000,000,000 $EELP. No minting, no transaction taxes, no hidden admin keys.
         </p>
       </div>
 

@@ -16,7 +16,7 @@ export default function GovernancePage() {
           Ecosystem Signal Governance
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Use your $ELP ERC20Votes voting power to signal priority for cross-chain forensic adapters, anomaly thresholds, and feature milestones.
+          Use your $EELP ERC20Votes voting power to signal priority for cross-chain forensic adapters, anomaly thresholds, and feature milestones.
         </p>
       </div>
 

@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { NetworkWarning } from "@/components/NetworkWarning";
 
 export const metadata: Metadata = {
-  title: "ELP | Crypto Market Intelligence & On-Chain Forensics",
+  title: "EELP | Crypto Market Intelligence & On-Chain Forensics",
   description: "Turn raw blockchain activity into understandable market intelligence. Crypto X-Ray, Wallet Graph, Flow Divergence, and Behavioral Fingerprints.",
 };
 

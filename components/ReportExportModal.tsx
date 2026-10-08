@@ -19,7 +19,7 @@ export const ReportExportModal: React.FC<ReportExportModalProps> = ({
   if (!isOpen) return null;
 
   const generateMarkdownReport = () => {
-    return `# ELP Token Intelligence & Forensic Report
+    return `# EELP Token Intelligence & Forensic Report
 
 **Token:** ${data.token.name} (${data.token.symbol})
 **Chain:** ${data.token.chainSlug.toUpperCase()}
@@ -29,7 +29,7 @@ export const ReportExportModal: React.FC<ReportExportModalProps> = ({
 ---
 
 ## 1. Executive Summary & Market Structure
-- **ELP Intelligence Score:** ${data.elpIntelligenceScore.score}/100 (Confidence: ${data.elpIntelligenceScore.confidence})
+- **EELP Intelligence Score:** ${data.elpIntelligenceScore.score}/100 (Confidence: ${data.elpIntelligenceScore.confidence})
 - **Holder Quality Score:** ${data.holderQuality.score}/100 (${data.holderQuality.rating})
 - **Market Regime:** ${data.marketRegime.regime}
 - **Price (USD):** ${formatCurrency(data.market.priceUsd)}
@@ -71,7 +71,7 @@ ${data.clusters.map((c) => `- **${c.name} (${c.id}):** ${c.walletCount} wallets 
 ---
 
 ## 6. Regulatory & Forensic Notice
-*ELP provides blockchain data analysis and analytical signals for informational purposes only. ELP does not provide financial or investment advice.*
+*EELP provides blockchain data analysis and analytical signals for informational purposes only. EELP does not provide financial or investment advice.*
 `;
   };
 
@@ -80,7 +80,7 @@ ${data.clusters.map((c) => `- **${c.name} (${c.id}):** ${c.walletCount} wallets 
     const element = document.createElement("a");
     const file = new Blob([reportText], { type: "text/markdown" });
     element.href = URL.createObjectURL(file);
-    element.download = `ELP-Report-${data.token.symbol}-${data.token.address.slice(0, 8)}.md`;
+    element.download = `EELP-Report-${data.token.symbol}-${data.token.address.slice(0, 8)}.md`;
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -116,7 +116,7 @@ ${data.clusters.map((c) => `- **${c.name} (${c.id}):** ${c.walletCount} wallets 
           </p>
 
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800 font-mono text-xs text-slate-700 dark:text-slate-300 max-h-48 overflow-y-auto space-y-1">
-            <div># ELP Token Intelligence & Forensic Report</div>
+            <div># EELP Token Intelligence & Forensic Report</div>
             <div>**Token:** {data.token.name} ({data.token.symbol})</div>
             <div>**Score:** {data.elpIntelligenceScore.score}/100</div>
             <div>**Holder Quality:** {data.holderQuality.score}/100</div>

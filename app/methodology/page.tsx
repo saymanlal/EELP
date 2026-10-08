@@ -14,7 +14,7 @@ export default function MethodologyPage() {
           <span>Full Transparency</span>
         </div>
         <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">
-          ELP Forensic Methodology
+          EELP Forensic Methodology
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
           No black-box algorithms or AI hallucinations. Transparent on-chain telemetry mathematical formulas.
@@ -49,7 +49,7 @@ export default function MethodologyPage() {
             2. Wallet Clustering Detection
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            ELP identifies behaviorally linked wallet clusters based on empirical on-chain footprints:
+            EELP identifies behaviorally linked wallet clusters based on empirical on-chain footprints:
           </p>
           <ul className="space-y-2 text-xs">
             <li>• <strong>Funding Origin:</strong> Wallets receiving initial ETH from identical centralized exchange deposit routers or deployer contracts within a narrow block timeframe.</li>

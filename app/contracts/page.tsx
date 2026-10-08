@@ -18,7 +18,7 @@ export default function ContractsPage() {
 
   const contractsList: ContractRegistryItem[] = [
     {
-      name: "ELP Token ($ELP)",
+      name: "EELP Token ($EELP)",
       description: "Fixed supply ERC20, ERC20Permit, ERC20Votes token (1,000,000,000 fixed supply).",
       address: CONTRACT_ADDRESSES.elpToken,
       network: "Arbitrum Sepolia (421614)",
@@ -33,13 +33,13 @@ export default function ContractsPage() {
     },
     {
       name: "Team Vesting Vault",
-      description: "Public verifiable linear vesting contract (100M ELP, 3-mo cliff, 12-mo linear).",
+      description: "Public verifiable linear vesting contract (100M EELP, 3-mo cliff, 12-mo linear).",
       address: CONTRACT_ADDRESSES.vesting,
       network: "Arbitrum Sepolia (421614)",
       explorerUrl: "https://sepolia.arbiscan.io",
     },
     {
-      name: "ELP Governor",
+      name: "EELP Governor",
       description: "OpenZeppelin Governor contract for decentralized signal voting.",
       address: CONTRACT_ADDRESSES.governor,
       network: "Arbitrum Sepolia (421614)",
@@ -80,7 +80,7 @@ export default function ContractsPage() {
           Verified Smart Contracts
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Direct verifiable on-chain registry for $ELP ecosystem contracts. No fabricated addresses.
+          Direct verifiable on-chain registry for $EELP ecosystem contracts. No fabricated addresses.
         </p>
       </div>
 

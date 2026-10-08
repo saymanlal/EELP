@@ -1,6 +1,6 @@
-# ELP Terminal Deployment & Launch Guide
+# EELP Terminal Deployment & Launch Guide
 
-This guide details how to deploy the ELP smart contracts on **Arbitrum Sepolia** (and switch to **Arbitrum One** mainnet) and deploy the frontend to **Vercel's Free Tier**.
+This guide details how to deploy the EELP smart contracts on **Arbitrum Sepolia** (and switch to **Arbitrum One** mainnet) and deploy the frontend to **Vercel's Free Tier**.
 
 ---
 
@@ -38,10 +38,10 @@ This guide details how to deploy the ELP smart contracts on **Arbitrum Sepolia**
    ```
 
 3. Note down the deployed contract addresses:
-   - `ELPToken`
+   - `EELPToken`
    - `StakingTiers`
    - `VestingVault`
-   - `ELPGovernor`
+   - `EELPGovernor`
 
 ---
 
@@ -50,7 +50,7 @@ This guide details how to deploy the ELP smart contracts on **Arbitrum Sepolia**
 1. Push the repository to GitHub:
    ```bash
    git add .
-   git commit -m "feat: complete ELP Terminal platform"
+   git commit -m "feat: complete EELP Terminal platform"
    git push origin main
    ```
 
@@ -62,7 +62,7 @@ This guide details how to deploy the ELP smart contracts on **Arbitrum Sepolia**
    NEXT_PUBLIC_CHAIN_ID=421614
    NEXT_PUBLIC_RPC_URL=https://sepolia-rollup.arbitrum.io/rpc
    NEXT_PUBLIC_EXPLORER_URL=https://sepolia.arbiscan.io
-   NEXT_PUBLIC_ELP_TOKEN_ADDRESS=0x...
+   NEXT_PUBLIC_EELP_TOKEN_ADDRESS=0x...
    NEXT_PUBLIC_STAKING_ADDRESS=0x...
    NEXT_PUBLIC_VESTING_ADDRESS=0x...
    NEXT_PUBLIC_GOVERNOR_ADDRESS=0x...

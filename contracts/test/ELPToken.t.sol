@@ -2,11 +2,11 @@
 pragma solidity 0.8.24;
 
 import {Test} from "forge-std/Test.sol";
-import {ELPToken} from "../src/ELPToken.sol";
+import {EELPToken} from "../src/EELPToken.sol";
 import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 
-contract ELPTokenTest is Test {
-    ELPToken public token;
+contract EELPTokenTest is Test {
+    EELPToken public token;
     address public deployer;
     address public alice;
     address public bob;
@@ -25,13 +25,13 @@ contract ELPTokenTest is Test {
         alice = vm.addr(alicePrivateKey);
         bob = vm.addr(bobPrivateKey);
 
-        token = new ELPToken(deployer);
+        token = new EELPToken(deployer);
     }
 
     // 1. Basic Metadata & Supply Tests
     function test_MetadataAndFixedSupply() public view {
-        assertEq(token.name(), "ELP Token");
-        assertEq(token.symbol(), "ELP");
+        assertEq(token.name(), "EELP Token");
+        assertEq(token.symbol(), "EELP");
         assertEq(token.decimals(), 18);
         assertEq(token.totalSupply(), EXPECTED_TOTAL_SUPPLY);
         assertEq(token.balanceOf(deployer), EXPECTED_TOTAL_SUPPLY);
@@ -39,7 +39,7 @@ contract ELPTokenTest is Test {
 
     function test_ConstructorZeroAddressReverts() public {
         vm.expectRevert("Invalid initial recipient");
-        new ELPToken(address(0));
+        new EELPToken(address(0));
     }
 
     // 2. Transfer & Allowances

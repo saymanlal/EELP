@@ -25,7 +25,7 @@ export const StakingPanel: React.FC = () => {
   const [txHash, setTxHash] = useState<string | undefined>(undefined);
   const [txErrorMessage, setTxErrorMessage] = useState<string | undefined>(undefined);
 
-  // Read User ELP Balance
+  // Read User EELP Balance
   const { data: elpBalanceRaw, refetch: refetchBalance } = useReadContract({
     address: CONTRACT_ADDRESSES.elpToken as `0x${string}`,
     abi: CONTRACT_ABIS.elpToken,
@@ -225,10 +225,10 @@ export const StakingPanel: React.FC = () => {
           <div>
             <h3 className="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
               <Coins className="w-5 h-5 text-emerald-500" />
-              <span>$ELP Utility Access Staking</span>
+              <span>$EELP Utility Access Staking</span>
             </h3>
             <p className="text-xs text-slate-500">
-              Stake $ELP to unlock advanced platform forensics and cluster intelligence tiers.
+              Stake $EELP to unlock advanced platform forensics and cluster intelligence tiers.
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -241,13 +241,13 @@ export const StakingPanel: React.FC = () => {
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
             <div className="text-xs text-slate-400 mb-0.5">Wallet Balance</div>
             <div className="text-base font-bold font-mono text-slate-900 dark:text-white">
-              {formatNumber(elpBalance)} $ELP
+              {formatNumber(elpBalance)} $EELP
             </div>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
             <div className="text-xs text-slate-400 mb-0.5">Currently Staked</div>
             <div className="text-base font-bold font-mono text-emerald-600 dark:text-emerald-400">
-              {formatNumber(stakedBalance)} $ELP
+              {formatNumber(stakedBalance)} $EELP
             </div>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800">
@@ -274,7 +274,7 @@ export const StakingPanel: React.FC = () => {
                 : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}
           >
-            Stake $ELP
+            Stake $EELP
           </button>
           <button
             onClick={() => setActiveTab("unstake")}
@@ -315,7 +315,7 @@ export const StakingPanel: React.FC = () => {
                   onClick={() => setStakeAmount(elpBalance.toString())}
                   className="text-emerald-600 dark:text-emerald-400 font-medium hover:underline"
                 >
-                  Max: {formatNumber(elpBalance)} $ELP
+                  Max: {formatNumber(elpBalance)} $EELP
                 </button>
               </div>
               <div className="relative flex items-center">
@@ -327,7 +327,7 @@ export const StakingPanel: React.FC = () => {
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 text-slate-900 dark:text-white font-mono text-base outline-none focus:border-emerald-500 transition"
                 />
                 <span className="absolute right-4 text-xs font-bold text-slate-400">
-                  $ELP
+                  $EELP
                 </span>
               </div>
             </div>
@@ -341,7 +341,7 @@ export const StakingPanel: React.FC = () => {
                 ? "Staking Contract Not Deployed"
                 : !isConnected
                 ? "Connect Wallet to Stake"
-                : "Stake $ELP to Upgrade Tier"}
+                : "Stake $EELP to Upgrade Tier"}
             </button>
           </div>
         )}
@@ -366,7 +366,7 @@ export const StakingPanel: React.FC = () => {
                   onClick={() => setUnstakeAmount(stakedBalance.toString())}
                   className="text-amber-600 dark:text-amber-400 font-medium hover:underline"
                 >
-                  Max: {formatNumber(stakedBalance)} $ELP
+                  Max: {formatNumber(stakedBalance)} $EELP
                 </button>
               </div>
               <div className="relative flex items-center">
@@ -378,7 +378,7 @@ export const StakingPanel: React.FC = () => {
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 text-slate-900 dark:text-white font-mono text-base outline-none focus:border-amber-500 transition"
                 />
                 <span className="absolute right-4 text-xs font-bold text-slate-400">
-                  $ELP
+                  $EELP
                 </span>
               </div>
             </div>
@@ -415,7 +415,7 @@ export const StakingPanel: React.FC = () => {
                   >
                     <div>
                       <div className="font-bold font-mono text-sm text-slate-900 dark:text-white">
-                        {formatNumber(amountFormatted)} $ELP
+                        {formatNumber(amountFormatted)} $EELP
                       </div>
                       <div className="text-slate-500 mt-0.5">
                         {req.claimed ? (

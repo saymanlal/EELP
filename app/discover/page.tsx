@@ -8,10 +8,10 @@ import { formatCurrency, formatPercent, formatNumber } from "@/lib/format";
 export default function DiscoverPage() {
   const emergingTokens = [
     {
-      symbol: "ELP",
-      name: "ELP Terminal",
+      symbol: "EELP",
+      name: "EELP Terminal",
       chain: "arbitrum-sepolia",
-      address: process.env.NEXT_PUBLIC_ELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
+      address: process.env.NEXT_PUBLIC_EELP_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000",
       priceChange24h: 14.8,
       liquidityUsd: 250000,
       flowSignal: "High Organic Accumulation",
@@ -100,7 +100,7 @@ export default function DiscoverPage() {
 
               <div className="text-right">
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  ELP Score
+                  EELP Score
                 </div>
                 <div className="text-lg font-black font-mono text-emerald-600">
                   {t.score}/100

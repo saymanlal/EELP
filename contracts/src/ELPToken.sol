@@ -7,12 +7,12 @@ import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Vo
 import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
 /**
- * @title ELPToken
- * @notice Native utility token for the ELP Terminal ecosystem.
+ * @title EELPToken
+ * @notice Native utility token for the EELP Terminal ecosystem.
  * @dev Fixed supply ERC20 token with EIP-2612 Permit and ERC-5805 / ERC-6372 Votes support.
  * 
  * Invariants & Security Guarantees:
- * - Total fixed supply: 1,000,000,000 ELP (1 billion tokens with 18 decimals) minted once at deployment.
+ * - Total fixed supply: 1,000,000,000 EELP (1 billion tokens with 18 decimals) minted once at deployment.
  * - No additional minting capability.
  * - No burning capability outside of standard zero-address transfers.
  * - No pause, blacklist, whitelist, or freeze mechanisms.
@@ -20,16 +20,16 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
  * - No owner, admin, or privileged monetary controls.
  * - Fully decentralized, standard ERC-20 + Permit + Votes token.
  */
-contract ELPToken is ERC20, ERC20Permit, ERC20Votes {
+contract EELPToken is ERC20, ERC20Permit, ERC20Votes {
     uint256 public constant TOTAL_SUPPLY = 1_000_000_000 * 10 ** 18;
 
     /**
-     * @notice Deploys the ELP token and mints the entire fixed supply to the initial recipient.
+     * @notice Deploys the EELP token and mints the entire fixed supply to the initial recipient.
      * @param initialRecipient Address receiving the initial token allocation for distribution / vaults.
      */
     constructor(address initialRecipient)
-        ERC20("ELP Token", "ELP")
-        ERC20Permit("ELP Token")
+        ERC20("EELP Token", "EELP")
+        ERC20Permit("EELP Token")
     {
         require(initialRecipient != address(0), "Invalid initial recipient");
         _mint(initialRecipient, TOTAL_SUPPLY);

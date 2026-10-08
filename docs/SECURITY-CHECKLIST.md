@@ -1,13 +1,13 @@
-# ELP Security Checklist & Audit Standards
+# EELP Security Checklist & Audit Standards
 
-This document outlines the security architecture, invariant guarantees, and static analysis verification for the ELP Terminal smart contracts.
+This document outlines the security architecture, invariant guarantees, and static analysis verification for the EELP Terminal smart contracts.
 
 ---
 
 ## 1. Smart Contract Invariants
 
-### ELPToken.sol
-- [x] **Fixed Supply Invariant:** Exactly 1,000,000,000 $ELP minted during constructor execution.
+### EELPToken.sol
+- [x] **Fixed Supply Invariant:** Exactly 1,000,000,000 $EELP minted during constructor execution.
 - [x] **No Minting Capability:** No `mint` or internal `_mint` invocations exist after deployment.
 - [x] **No Pause or Freezing:** No pause mechanism or transfer locks.
 - [x] **No Blacklist:** No address blacklist or transfer restrictions.
