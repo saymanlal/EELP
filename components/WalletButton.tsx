@@ -18,6 +18,7 @@ import {
   Smartphone,
   Globe,
   RefreshCw,
+  CheckCircle2,
 } from "lucide-react";
 import { formatAddress, formatNumber } from "@/lib/format";
 import { CONTRACT_ADDRESSES, CONTRACT_ABIS } from "@/lib/contracts";
@@ -27,17 +28,18 @@ import { formatUnits } from "viem";
 interface WalletOption {
   id: string;
   name: string;
-  iconUrl?: string;
+  iconBg: string;
   downloadUrl: string;
   deepLink?: string;
   description: string;
   popular?: boolean;
 }
 
-const POPULAR_WALLETS: WalletOption[] = [
+const WALLET_LIST: WalletOption[] = [
   {
     id: "metaMask",
     name: "MetaMask",
+    iconBg: "bg-orange-500",
     downloadUrl: "https://metamask.io/download/",
     deepLink: "https://metamask.app.link/dapp/",
     description: "Connect via browser extension or mobile app",
@@ -46,35 +48,49 @@ const POPULAR_WALLETS: WalletOption[] = [
   {
     id: "coinbaseWallet",
     name: "Coinbase Wallet",
+    iconBg: "bg-blue-600",
     downloadUrl: "https://www.coinbase.com/wallet/downloads",
     deepLink: "https://go.cb-w.com/dapp",
-    description: "Self-custody crypto wallet & dApp browser",
+    description: "Self-custody crypto wallet & mobile app",
     popular: true,
   },
   {
     id: "rabby",
     name: "Rabby Wallet",
+    iconBg: "bg-indigo-600",
     downloadUrl: "https://rabby.io/",
-    description: "The game-changing Web3 wallet for Ethereum & EVM",
+    description: "The game-changing Web3 wallet for EVM chains",
+    popular: true,
+  },
+  {
+    id: "trust",
+    name: "Trust Wallet",
+    iconBg: "bg-sky-500",
+    downloadUrl: "https://trustwallet.com/browser-extension",
+    deepLink: "https://link.trustwallet.com/open_url?coin_id=60&url=",
+    description: "Multi-chain Web3 browser extension & app",
   },
   {
     id: "rainbow",
     name: "Rainbow",
+    iconBg: "bg-emerald-600",
     downloadUrl: "https://rainbow.me/download",
     deepLink: "https://rnbwapp.com/",
-    description: "Fun, simple, and secure Ethereum wallet",
+    description: "Simple and secure Ethereum wallet",
   },
   {
     id: "zerion",
     name: "Zerion",
+    iconBg: "bg-purple-600",
     downloadUrl: "https://zerion.io/download",
-    description: "Smart Web3 wallet with built-in portfolio tracker",
+    description: "Smart Web3 wallet with portfolio tracking",
   },
 ];
 
 export const WalletButton: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
   const { address, isConnected, chain } = useAccount();
-  const { connect, connectors, isPending, error } = useConnect();
+  const { connect, connectors, isPending, error: connectError } = useConnect();
   const { disconnect } = useDisconnect();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -83,6 +99,10 @@ export const WalletButton: React.FC = () => {
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Read EELP Balance if token contract is configured
   const { data: elpBalanceRaw } = useReadContract({
@@ -140,32 +160,40 @@ export const WalletButton: React.FC = () => {
     return !!(window as any).ethereum;
   };
 
-  const handleConnectClick = async () => {
-    setConnectionError(null);
-    setMissingWalletNotice(null);
-
-    // If browser has window.ethereum injected, trigger injected connector directly
-    if (hasInjectedProvider()) {
-      const injectedConnector = connectors.find((c) => c.type === "injected" || c.id === "injected") || connectors[0];
-      if (injectedConnector) {
-        try {
-          await connect({ connector: injectedConnector });
-          return;
-        } catch (err: any) {
-          console.error("Connection attempt failed:", err);
-          setConnectionError(err?.message || "Failed to connect to browser wallet");
-          setShowConnectModal(true);
-          return;
-        }
+  // Direct raw eth_requestAccounts fallback
+  const directRequestAccounts = async () => {
+    if (typeof window !== "undefined" && (window as any).ethereum) {
+      try {
+        await (window as any).ethereum.request({ method: "eth_requestAccounts" });
+      } catch (err: any) {
+        console.warn("Direct eth_requestAccounts prompt error:", err);
       }
     }
+  };
 
-    // If no provider detected or on mobile without web3 browser, open guided connector modal
+  const handleConnectClick = () => {
+    setConnectionError(null);
+    setMissingWalletNotice(null);
     setShowConnectModal(true);
+  };
+
+  const handleConnectWithConnector = async (connector: any) => {
+    setConnectionError(null);
+    try {
+      // Trigger raw prompt first if extension is dormant
+      await directRequestAccounts();
+      await connect({ connector });
+      setShowConnectModal(false);
+    } catch (err: any) {
+      console.error("Connect error:", err);
+      setConnectionError(err?.message || "Connection was cancelled or rejected by user.");
+    }
   };
 
   const handleSelectWallet = async (wallet: WalletOption) => {
     setConnectionError(null);
+    setMissingWalletNotice(null);
+
     const hasEthereum = hasInjectedProvider();
 
     if (!hasEthereum) {
@@ -177,26 +205,43 @@ export const WalletButton: React.FC = () => {
         return;
       }
 
-      // Show missing wallet download prompt
+      // Show missing wallet prompt with install link
       setMissingWalletNotice(wallet);
       return;
     }
 
-    // An injected provider is available, attempt to connect
-    const targetConnector = connectors.find(
-      (c) => c.id.toLowerCase().includes(wallet.id.toLowerCase()) || c.type === "injected"
-    ) || connectors[0];
+    // Try finding connector matching wallet ID or type
+    const target =
+      connectors.find((c) => c.id.toLowerCase().includes(wallet.id.toLowerCase())) ||
+      connectors.find((c) => c.name.toLowerCase().includes(wallet.name.toLowerCase())) ||
+      connectors.find((c) => c.type === "injected") ||
+      connectors[0];
 
-    if (targetConnector) {
+    if (target) {
+      await handleConnectWithConnector(target);
+    } else {
+      // Direct raw window.ethereum trigger
       try {
-        await connect({ connector: targetConnector });
+        await directRequestAccounts();
         setShowConnectModal(false);
       } catch (err: any) {
-        console.error("Connect error:", err);
-        setConnectionError(err?.message || "User rejected connection request or wallet failed to respond.");
+        setConnectionError("Could not prompt wallet window. Please check your browser extension permissions.");
       }
     }
   };
+
+  if (!mounted) {
+    return (
+      <div className="relative">
+        <button
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm opacity-90 shadow-sm"
+        >
+          <Wallet className="w-4 h-4 text-emerald-500 dark:text-emerald-600" />
+          <span>Connect Wallet</span>
+        </button>
+      </div>
+    );
+  }
 
   if (!isConnected) {
     return (
@@ -221,9 +266,9 @@ export const WalletButton: React.FC = () => {
           </button>
         </div>
 
-        {/* Modal: Wallet Connection Selector & Missing Wallet Installer */}
+        {/* Modal: Universal Web3 Wallet Connection & Installer */}
         {showConnectModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-150">
             <div className="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
               {/* Modal Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800">
@@ -236,7 +281,7 @@ export const WalletButton: React.FC = () => {
                       Connect Web3 Wallet
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Select your preferred wallet to interact with EELP
+                      Select your wallet to interact with EELP platform
                     </p>
                   </div>
                 </div>
@@ -261,14 +306,14 @@ export const WalletButton: React.FC = () => {
                       {missingWalletNotice.name} not detected in your browser
                     </p>
                     <p className="text-amber-700 dark:text-amber-400/90 mt-0.5">
-                      Please install the browser extension or open in their official mobile dApp browser.
+                      Please install the official browser extension or launch from the mobile wallet app.
                     </p>
                     <div className="mt-2.5 flex items-center gap-2">
                       <a
                         href={missingWalletNotice.downloadUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-semibold text-xs transition shadow-sm"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-semibold text-xs transition shadow-sm"
                       >
                         <Download className="w-3.5 h-3.5" />
                         Install {missingWalletNotice.name}
@@ -299,15 +344,14 @@ export const WalletButton: React.FC = () => {
 
               {/* Wallet List */}
               <div className="p-4 space-y-2 max-h-[380px] overflow-y-auto">
-                {/* Direct Injected Option (If Detected) */}
+                {/* 1. Direct Extension (If Injected) */}
                 {hasInjectedProvider() && (
                   <button
                     onClick={() => {
-                      const c = connectors[0];
-                      if (c) connect({ connector: c });
-                      setShowConnectModal(false);
+                      const c = connectors.find((x) => x.type === "injected") || connectors[0];
+                      if (c) handleConnectWithConnector(c);
                     }}
-                    className="w-full flex items-center justify-between p-3 rounded-xl border border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-950/20 hover:bg-emerald-100/50 dark:hover:bg-emerald-900/30 transition text-left group"
+                    className="w-full flex items-center justify-between p-3 rounded-xl border border-emerald-500/40 bg-emerald-50/60 dark:bg-emerald-950/30 hover:bg-emerald-100/60 dark:hover:bg-emerald-900/40 transition text-left group"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-sm shadow-sm">
@@ -316,12 +360,12 @@ export const WalletButton: React.FC = () => {
                       <div>
                         <div className="font-semibold text-slate-900 dark:text-white text-sm flex items-center gap-1.5">
                           Browser Extension Detected
-                          <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold px-1.5 py-0.2 rounded border border-emerald-500/20">
+                          <span className="text-[10px] bg-emerald-500 text-white font-bold px-1.5 py-0.2 rounded">
                             Ready
                           </span>
                         </div>
                         <div className="text-xs text-slate-500 dark:text-slate-400">
-                          Connect with your active browser wallet
+                          Connect with your installed browser wallet
                         </div>
                       </div>
                     </div>
@@ -329,15 +373,41 @@ export const WalletButton: React.FC = () => {
                   </button>
                 )}
 
-                {/* Popular Wallets list */}
-                {POPULAR_WALLETS.map((wallet) => (
+                {/* 2. Detected Connectors list from wagmi */}
+                {connectors
+                  .filter((c) => c.type !== "injected" || !hasInjectedProvider())
+                  .map((connector) => (
+                    <button
+                      key={connector.uid || connector.id}
+                      onClick={() => handleConnectWithConnector(connector)}
+                      className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100/70 dark:hover:bg-slate-800/50 transition text-left group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center font-bold text-sm">
+                          <Wallet className="w-4 h-4 text-emerald-400" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-slate-900 dark:text-white text-sm">
+                            {connector.name}
+                          </div>
+                          <div className="text-xs text-slate-500 dark:text-slate-400">
+                            Available Connector
+                          </div>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition" />
+                    </button>
+                  ))}
+
+                {/* 3. Popular Wallets with install & deep-links */}
+                {WALLET_LIST.map((wallet) => (
                   <button
                     key={wallet.id}
                     onClick={() => handleSelectWallet(wallet)}
                     className="w-full flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-100/70 dark:hover:bg-slate-800/50 transition text-left group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex items-center justify-center font-bold text-sm">
+                      <div className={`w-9 h-9 rounded-xl ${wallet.iconBg} text-white flex items-center justify-center font-bold text-sm shadow-sm`}>
                         <Smartphone className="w-4 h-4" />
                       </div>
                       <div>
@@ -349,7 +419,7 @@ export const WalletButton: React.FC = () => {
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[230px]">
+                        <div className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[220px]">
                           {wallet.description}
                         </div>
                       </div>
@@ -359,7 +429,7 @@ export const WalletButton: React.FC = () => {
                 ))}
               </div>
 
-              {/* Modal Footer Note */}
+              {/* Modal Footer */}
               <div className="px-6 py-3 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800/80 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
                 <span>Safe & Non-Custodial</span>
                 <span>No private keys ever requested</span>

@@ -8,7 +8,7 @@ import {
   polygon,
   optimism,
 } from "wagmi/chains";
-import { injected } from "wagmi/connectors";
+import { injected, metaMask, coinbaseWallet } from "wagmi/connectors";
 
 export const config = createConfig({
   chains: [
@@ -20,7 +20,27 @@ export const config = createConfig({
     polygon,
     optimism,
   ],
-  connectors: [injected()],
+  connectors: [
+    injected({
+      target() {
+        return {
+          id: "injected",
+          name: "Browser Injected Wallet",
+          provider: typeof window !== "undefined" ? (window as any).ethereum : undefined,
+        };
+      },
+    }),
+    metaMask({
+      dappMetadata: {
+        name: "EELP Terminal",
+        url: "https://eelp-mu.vercel.app",
+      },
+    }),
+    coinbaseWallet({
+      appName: "EELP Terminal",
+      appLogoUrl: "https://eelp-mu.vercel.app/icon.png",
+    }),
+  ],
   transports: {
     [arbitrumSepolia.id]: http(
       process.env.NEXT_PUBLIC_RPC_URL || "https://sepolia-rollup.arbitrum.io/rpc"
